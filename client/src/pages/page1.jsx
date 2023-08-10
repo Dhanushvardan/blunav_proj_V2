@@ -5,6 +5,7 @@ import TopBar from "../components/topbar";
 import SearchBar from "../components/searchbar.jsx";
 import "../pages/page1.scss";
 import NavBar from "../components/navBar.jsx";
+import DataGrid from "../components/dataGrid.jsx";
 
 export default function Page1() {
   return (
@@ -12,7 +13,7 @@ export default function Page1() {
       <div className="colLayout">
         <TopBar />
         <NavBar />
-        <GridPage />
+        <DataGrid />
       </div>
     </div>
   );
