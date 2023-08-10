@@ -1,0 +1,55 @@
+.sideBar {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 3vw;
+    background-color: black;
+    .logoIcon {
+        height: 7vh;
+        width: 3vw;
+        background-color: yellow;
+        .logoPic {
+            height: 7vh;
+            width: 3vw;
+        }
+    }
+    .sideBarIcons {
+        height: 70vh;
+        width: 2vw;
+        margin-top: 5vh;
+        background-color: black;
+        margin-left: 1vh;
+        .sideIcon {
+            height: 4vh;
+            width: 2vw;
+            margin-top: 2vh;
+            background-color: black;
+            &:hover {
+                //background-color: blue;
+                transform: scale(1.15);
+            }
+        }
+    }
+    .exitIcon {
+        height: 5vh;
+        width: 2vw;
+        background-color: black;
+        margin-top: 3vh;
+        margin-left: 1vh;
+        &:hover {
+            //background-color: blue;
+            transform: scale(1.15);
+        }
+    }
+    .setIcon {
+        height: 5vh;
+        width: 2vw;
+        background-color: black;
+        margin-top: 3vh;
+        margin-left: 1vh;
+        &:hover {
+            //background-color: blue;
+            transform: scale(1.15);
+        }
+    }
+}

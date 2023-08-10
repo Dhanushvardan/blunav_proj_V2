@@ -1,0 +1,103 @@
+.HomePage {
+    height: 100vh;
+    width: 100vw;
+    .ag-theme-balham-dark {
+        --ag-font-size: 12px;
+        --ag-font-family: "Open Sans";
+    }
+    .filterBar {
+        height: 3vh;
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: right;
+        .ftinput {
+            width: 7vw;
+            background-color: #323232;
+            height: 2vh;
+            color: white;
+            align-items: center;
+            display: flex;
+            border-top-left-radius: 0.5vw;
+            border-top-right-radius: 0.5vw;
+            border-bottom-left-radius: 0.5vw;
+            border-bottom-right-radius: 0.5vw;
+            margin-right: 1vw;
+        }
+        .ttinput {
+            width: 7vw;
+            margin-right: 1vw;
+            background-color: #323232;
+            height: 2vh;
+            color: white;
+            align-items: center;
+            display: flex;
+            border-top-left-radius: 0.5vw;
+            border-top-right-radius: 0.5vw;
+            border-bottom-left-radius: 0.5vw;
+            border-bottom-right-radius: 0.5vw;
+        }
+        .timeButton {
+            margin-right: 1vw;
+            align-items: center;
+            display: flex;
+            height: 3vh;
+            background-color: #6F6F6F;
+            border-top-left-radius: 0.5vw;
+            border-top-right-radius: 0.5vw;
+            border-bottom-left-radius: 0.5vw;
+            border-bottom-right-radius: 0.5vw;
+        }
+        .sBar {
+            width: 7vw;
+            align-items: center;
+            display: flex;
+            height: 2vh;
+            color: white;
+            background-color: black;
+            border-top-left-radius: 0.5vw;
+            border-top-right-radius: 0.5vw;
+            border-bottom-left-radius: 0.5vw;
+            border-bottom-right-radius: 0.5vw;
+        }
+        .rangeFilterButton {
+            margin-right: 1vw;
+            align-items: center;
+            display: flex;
+            height: 3vh;
+            background-color: #6F6F6F;
+            border-top-left-radius: 0.5vw;
+            border-top-right-radius: 0.5vw;
+            border-bottom-left-radius: 0.5vw;
+            border-bottom-right-radius: 0.5vw;
+        }
+        .fdinput {
+            margin-right: 1vw;
+            background-color: #323232;
+            height: 2vh;
+            color: white;
+            display: flex;
+            align-items: center;
+            border-top-left-radius: 0.5vw;
+            border-top-right-radius: 0.5vw;
+            border-bottom-left-radius: 0.5vw;
+            border-bottom-right-radius: 0.5vw;
+        }
+        .tdinput {
+            margin-right: 1vw;
+            background-color: #323232;
+            height: 2vh;
+            color: white;
+            align-items: center;
+            display: flex;
+            border-top-left-radius: 0.5vw;
+            border-top-right-radius: 0.5vw;
+            border-bottom-left-radius: 0.5vw;
+            border-bottom-right-radius: 0.5vw;
+        }
+    }
+}
+
+.ag-header-cell-label {
+    justify-content: left;
+}

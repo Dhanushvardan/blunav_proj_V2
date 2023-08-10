@@ -1,0 +1,40 @@
+.topbar {
+    height: 3vh;
+    width: 100vw;
+    background-color: black;
+    display: flex;
+    border-bottom: solid 0.01vh rgb(47, 41, 41);
+    .titleBar {
+        height: 3vh;
+        width: 20vw;
+        background-color: black;
+        display: flex;
+        align-items: center;
+        color: white;
+        font-size: 0.7vw;
+        margin-left: 1vw;
+    }
+    .timeBar {
+        height: 3vh;
+        width: 13vw;
+        margin-left: 65vw;
+        background-color: black;
+        color: white;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: right;
+        // .rs {
+        //     margin-top: 1vh;
+        // }
+        .dateSpace {
+            height: 3vh;
+            font-size: large;
+            width: 13vw;
+            align-items: center;
+            display: flex;
+            color: white;
+            font-size: 0.7vw;
+        }
+    }
+}

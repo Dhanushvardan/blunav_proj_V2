@@ -1,0 +1,27 @@
+.wholeNavBar {
+    height: 3vh;
+    width: 100vw;
+    border-bottom: solid 0.01vh rgb(47, 41, 41);
+    .navBar {
+        height: 3vh;
+        width: 100vw;
+        color: white;
+        background-color: black;
+        display: flex;
+        .navIcons {
+            height: 3vh;
+            width: 5vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-top-left-radius: 1vw;
+            border-top-right-radius: 1vw;
+            border-bottom-left-radius: 1vw;
+            border-bottom-right-radius: 1vw;
+            font-size: 0.7vw;
+            &:hover {
+                background-color: #323232;
+            }
+        }
+    }
+}

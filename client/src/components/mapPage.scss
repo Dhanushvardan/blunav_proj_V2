@@ -1,0 +1,9 @@
+.MapPage {
+    height: 95vh;
+    width: 100vw;
+    background-color: blue;
+    .leaflet-container {
+        height: 94vh;
+        width: 100vw;
+    }
+}
