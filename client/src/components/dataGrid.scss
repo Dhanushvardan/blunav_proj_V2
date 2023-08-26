@@ -8,19 +8,112 @@
         width: 100vw;
         background-color: black;
         display: flex;
+        align-items: center;
         .exportBut {
-            height: 3vh;
+            height: 2vh;
             width: 4vw;
+            font-size: 0.6vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .searchField {
+            height: 2vh;
+            width: 10vw;
+            border-radius: 0.5vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 0.8vw;
-            background-color: black;
-            color: white;
-            &:hover {
-                background-color: grey;
-            }
+            border: 1px solid white;
+            margin-left: 10vw;
+        }
+        .searchBut {
+            height: 2vh;
+            width: 4vw;
+            margin-left: 1vw;
+            font-size: 0.6vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .fdate {
+            height: 2vh;
+            width: 10vw;
+            margin-left: 1vw;
+            font-size: 0.6vw;
+        }
+        .tdate {
+            height: 2vh;
+            width: 10vw;
+            margin-left: 1vw;
+            font-size: 0.6vw;
+        }
+        .dateFilter {
+            height: 2vh;
+            width: 4vw;
+            font-size: 0.6vw;
+            margin-left: 1vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .ftime {
+            height: 2vh;
+            width: 10vw;
+            margin-left: 1vw;
+            font-size: 0.6vw;
+        }
+        .ttime {
+            height: 2vh;
+            width: 10vw;
+            margin-left: 1vw;
+            font-size: 0.6vw;
+        }
+        .timeFilter {
+            height: 2vh;
+            width: 4vw;
+            font-size: 0.6vw;
+            margin-left: 1vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .undo {
+            height: 2vh;
+            width: 4vw;
+            font-size: 0.6vw;
+            margin-left: 1vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .reset {
+            height: 2vh;
+            width: 4vw;
+            font-size: 0.6vw;
+            margin-left: 1vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     }
     .hotTable {
         height: 100vh;
         width: 100vw;
+        .tableCustom {
+            background-color: black;
+            color: white;
+        }
+        th.custom-header {
+            background-color: black;
+            color: white;
+        }
+        .htSearchResult {
+            background-color: yellow;
+            /* Change this to your desired highlight color */
+            color: black;
+            /* Change this to your desired text color */
+        }
     }
 }

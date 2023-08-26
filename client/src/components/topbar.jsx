@@ -3,7 +3,7 @@ import "../components/topbar.scss";
 import Datetime from "react-datetime";
 import Switch from "react-switch";
 
-export default function Topbar() {
+export default function Topbar({ switchState }) {
   var [date, setDate] = useState(new Date());
 
   var d = date.toLocaleDateString() + " " + date.toLocaleTimeString();
@@ -11,6 +11,7 @@ export default function Topbar() {
   const [checked, setChecked] = useState(false);
   const handleChange = (nextChecked) => {
     setChecked(nextChecked);
+    switchState(nextChecked);
   };
 
   useEffect(() => {
