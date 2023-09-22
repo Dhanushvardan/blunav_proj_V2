@@ -97,6 +97,15 @@
             justify-content: center;
             align-items: center;
         }
+        .colFil {
+            height: 2vh;
+            width: 4vw;
+            font-size: 0.6vw;
+            margin-left: 1vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     }
     .hotTable {
         height: 100vh;
@@ -110,10 +119,32 @@
             color: white;
         }
         .htSearchResult {
-            background-color: yellow;
+            background-color: black;
             /* Change this to your desired highlight color */
-            color: black;
+            color: white;
             /* Change this to your desired text color */
+        }
+    }
+    .popBar {
+        z-index: 999;
+        position: fixed;
+        height: 5.5vh;
+        width: 25vw;
+        display: flex;
+        background-color: white;
+        color: black;
+        margin-left: 70vw;
+        .colFil {
+            height: 4vh;
+            width: 20vw;
+        }
+        .popSelCol {
+            height: 5vh;
+            width: 4vw;
+            font-size: 0.6vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     }
 }

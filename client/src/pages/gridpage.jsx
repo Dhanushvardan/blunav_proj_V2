@@ -4,7 +4,8 @@ import React from "react";
 import "ag-grid-react";
 import { AgGridReact } from "ag-grid-react";
 import "./gridpage.scss";
-
+import { GridOptions } from "ag-grid-community";
+import { Button, DatePicker, Input, TimePicker } from "antd";
 import "ag-grid-community";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-balham.css";
@@ -16,10 +17,11 @@ import "ag-grid-community/styles/ag-theme-balham.css";
 
 // LicenseManager.setLicenseKey("5266e2b19455d0b5c7c8c52bf6367755");
 
-export default function Homepage() {
+export default function Homepage(switchState) {
   const [row, setRow] = useState([]);
   const [gApi, setgApi] = useState(null);
   const gridRef = useRef();
+
   // const ts = data.map((data) => {
   //   setRow((prevRows) => [...prevRows, data.timestamp.$date]);
   // });
@@ -36,10 +38,19 @@ export default function Homepage() {
 
       const filterValue = e.toISOString().split("T")[0];
 
-      console.log(filterValue);
+      let temp = item.timestamp.$date.substring(11, 19);
+      let t = temp.split(":").map(Number);
+      const date = new Date();
+      date.setHours(t[0]);
+      date.setMinutes(t[1]);
+      date.setSeconds(t[2]);
+
+      let utcTimeString = date.toISOString().substring(11, 19);
+
+      let timeStamp = item.timestamp.$date.substring(11, 19);
 
       list.push({
-        Time: item.timestamp.$date.substring(11, 19),
+        Time: timeStamp,
         date: f1,
         UniqueFlightID: item.FlightID.AIPUniqueID,
         AirlineIATAcode: item.FlightID.Airline.IATA,
@@ -97,6 +108,100 @@ export default function Homepage() {
     setRow(list);
   }, []);
 
+  const triggerTimeSwitch = () => {
+    const list = [];
+
+    data.forEach((item) => {
+      let s1 = item.timestamp.$date.substring(0, 10).split("-");
+
+      let f1 = s1[2] + "-" + s1[1] + "-" + s1[0];
+
+      const e = new Date(item.timestamp.$date.substring(0, 10));
+
+      const filterValue = e.toISOString().split("T")[0];
+
+      let temp = item.timestamp.$date.substring(11, 19);
+      let t = temp.split(":").map(Number);
+      const date = new Date();
+      date.setHours(t[0]);
+      date.setMinutes(t[1]);
+      date.setSeconds(t[2]);
+
+      let utcTimeString = date.toISOString().substring(11, 19);
+
+      let timeStamp = item.timestamp.$date.substring(11, 19);
+
+      if (switchState) {
+        timeStamp = utcTimeString;
+      }
+
+      list.push({
+        Time: utcTimeString,
+        date: f1,
+        UniqueFlightID: item.FlightID.AIPUniqueID,
+        AirlineIATAcode: item.FlightID.Airline.IATA,
+        AirlineICAOcode: item.FlightID.Airline.ICAO,
+        AirlineName: item.FlightID.Airline.Name,
+        FlightIdentifier: item.FlightID.FlightNumber,
+        ScheduleDepartureDate: item.FlightID.STO.Date,
+        ScheduleDepartureTime: item.FlightID.STO.Time,
+        AirportIATACode: item.FlightID.Airport.IATA,
+        AirportICAOCode: item.FlightID.Airport.ICAO,
+        AirportName: item.FlightID.Airport.Name,
+        AirportCity: item.FlightID.Airport.City,
+        AirportCountry: item.FlightID.Airport.Country,
+        FlightNature: item.FlightID.FlightNature,
+        FlightQualifier: item.ServiceType,
+        FlightStatus: item.OperationalStatus.Description["#text"],
+        InternationalStatus: item.InternationalStatus,
+        ActualDepartureTime: item.FlightEvents.ActualDeparture,
+        MostConfidentDepartureTime:
+          item.FlightEvents.MostConfidentDepartureTime,
+        MostConfidentOffChocksTime:
+          item.FlightEvents.MostConfidentOffChocksTime,
+        EstimatedDepartureTime: item.FlightEvents.EstimatedDeparture,
+        AircraftRegistration: item.PrimaryAircraft.Registration,
+        AircraftIATACode: item.PrimaryAircraft.Type.IATA,
+        AircraftICAOCode: item.PrimaryAircraft.Type.ICAO,
+        AircraftName: item.PrimaryAircraft.Type.Description,
+        OriginAirportIATA: item.Route.Origin.IATA,
+        OriginAirportICAO: item.Route.Origin.ICAO,
+        OriginAirportName: item.Route.Origin.Name,
+        OriginAirportCity: item.Route.Origin.City,
+        OriginAirportCountry: item.Route.Origin.Country,
+        DestinationAirportIATA: item.Route.Destination.IATA,
+        DestinationAirportICAO: item.Route.Destination.ICAO,
+        DestinationAirportName: item.Route.Destination.Name,
+        DestinationAirportCity: item.Route.Destination.City,
+        DestinationAirportCountry: item.Route.Destination.Country,
+        StandArea: item.ResourceAllocations["BAY"]["@Location"],
+        StandNumber: item.ResourceAllocations.BAY.Code,
+        StandAllocationStartTime: item.ResourceAllocations.BAY.Start,
+        StandAllocationEndTime: item.ResourceAllocations.BAY.Stop,
+        Terminal: item.Terminal,
+        LinkedFlightUniqueID: item.LinkedFlightID.AIPUniqueID,
+        LinkedFlightAirlineIATA: item.LinkedFlightID.Airport.IATA,
+        LinkedFlightAirlineICAO: item.LinkedFlightID.Airport.ICAO,
+        LinkedFlightAirlineName: item.LinkedFlightID.Airport.Name,
+        LinkedFlightAirlineCity: item.LinkedFlightID.Airport.City,
+        LinkedFlightAirlineCountry: item.LinkedFlightID.Airport.Country,
+        LinkedFlightScheduleDepartureDate: item.LinkedFlightID.STO.Date,
+        LinkedFlightScheduleDepartureTime: item.LinkedFlightID.STO.Time,
+        Groundedflightornot: item.CustomFields.Grounded,
+        SendtobillingforAIMS: item.CustomFields.SendToBilling,
+      });
+    });
+    setRow(list);
+  };
+
+  useEffect(() => {
+    console.log(switchState);
+    if (switchState == true) {
+      triggerTimeSwitch();
+      console.log("triggering");
+    }
+  }, [switchState]);
+
   const getRowStyle = (params) => {
     if (
       params.data.AirlineName === "Etihad Airways" &&
@@ -122,15 +227,14 @@ export default function Homepage() {
 
           var dateParts = dateAsString.split("-");
 
-          console.log(dateParts);
           var cellDate = new Date(
             Number(dateParts[2]),
             Number(dateParts[1]) - 1,
             Number(dateParts[0])
           );
+
           //console.log(filterLocalDateAtMidnight.toISOString().split("T")[0]);
-          console.log(cellDate);
-          console.log(filterLocalDateAtMidnight.getTime());
+
           if (filterLocalDateAtMidnight.getTime() === cellDate.getTime()) {
             return 0;
           }
@@ -156,16 +260,16 @@ export default function Homepage() {
           var dateAsString = cellValue;
           if (dateAsString == null) return -1;
           var dateParts = dateAsString.split("-");
-          console.log(dateParts);
+          console.log("date parts", dateParts);
           var cellDate = new Date(
             Number(dateParts[2]),
             Number(dateParts[1]) - 1,
             Number(dateParts[0])
           );
           //console.log(filterLocalDateAtMidnight.toISOString().split("T")[0]);
-          console.log(cellDate);
+
           console.log(filterLocalDateAtMidnight.getTime());
-          if (filterLocalDateAtMidnight.getTime() === cellDate.getTime()) {
+          if (filterLocalDateAtMidnight.getTime() === dateAsString.getTime()) {
             return 0;
           }
           if (cellDate < filterLocalDateAtMidnight) {
@@ -346,19 +450,15 @@ export default function Homepage() {
     const filteredColumnDefinitions = v.filter((column) => {
       return c.includes(column.headerName.toLocaleLowerCase());
     });
-    console.log(filteredColumnDefinitions);
 
     // const updatedFilteredCol = [...filteredCol, filteredColumnDefinitions[0]];
     // setfilteredCol(updatedFilteredCol);
     filteredCol.push(filteredColumnDefinitions[0]);
 
-    console.log(filteredCol);
-
     setZ([]);
 
     setZ((prevCols) => [...prevCols, filteredColumnDefinitions[0]]);
 
-    console.log("z value", z);
     setTempD(z);
   };
 
@@ -371,6 +471,7 @@ export default function Homepage() {
   }
 
   const triggerSearch = (e) => {
+    console.log("search");
     gApi.setQuickFilter(e.target.value);
   };
 
@@ -399,11 +500,15 @@ export default function Homepage() {
     var d1 = fDate.split("-");
     var d2 = tDate.split("-");
 
+    console.log(fDate);
+
+    console.log("actual date", fDate);
     var fromDate = d1[2] + "-" + d1[1] + "-" + d1[0];
     var toDate = d2[2] + "-" + d2[1] + "-" + d2[0];
 
+    console.log("changed date", fromDate);
     dateFilterComponent.setModel({
-      type: "inRange",
+      type: "inrange",
       dateFrom: fDate,
       dateTo: tDate,
     });
@@ -453,53 +558,59 @@ export default function Homepage() {
   return (
     <div className="HomePage">
       <div className="filterBar">
-        <input
-          placeholder="From Date"
-          type="date"
-          className="fdinput"
-          onChange={(e) => {
-            setFDate(e.target.value);
-          }}
-        />
+        <div className="dateRange">
+          <DatePicker
+            type="date"
+            placeholder="From Date"
+            className="fdinput"
+            label="from"
+            onChange={(value, dateString) => {
+              setFDate(dateString);
+            }}
+          />
 
-        <input
-          placeholder="To Date"
-          type="date"
-          className="tdinput"
-          onChange={(e) => {
-            setTDate(e.target.value);
-          }}
-        ></input>
-        <button onClick={ApplyRangeFilter} className="rangeFilterButton">
-          Filter
-        </button>
+          <DatePicker
+            placeholder="To Date"
+            type="date"
+            className="tdinput"
+            onChange={(value, dateString) => {
+              setTDate(dateString);
+            }}
+          />
 
-        <input
-          placeholder="From time"
-          className="ftinput"
-          type="text"
-          onChange={(e) => {
-            setFTime(e.target.value);
-          }}
-        ></input>
-        <input
-          placeholder="To time"
-          className="ttinput"
-          type="text"
-          onChange={(e) => {
-            setTTime(e.target.value);
-          }}
-        ></input>
+          <Button onClick={ApplyRangeFilter} className="rangeFilterButton">
+            Filter
+          </Button>
+        </div>
 
-        <button onClick={ApplyTimeFilter} className="timeButton">
-          Filter
-        </button>
-        <input
+        <div className="timeRange">
+          <TimePicker
+            placeholder="from time"
+            className="ftinput"
+            type="text"
+            onChange={(time, timeString) => {
+              setFTime(timeString);
+            }}
+          />
+          <TimePicker
+            placeholder="To time"
+            className="ttinput"
+            type="text"
+            onChange={(time, timeString) => {
+              setTTime(timeString);
+            }}
+          />
+          <Button onClick={ApplyTimeFilter} className="timeButton">
+            Filter
+          </Button>
+        </div>
+
+        <Input
           placeholder="Search Here"
           className="sBar"
           onChange={triggerSearch}
           type="text"
-        ></input>
+        />
       </div>
 
       <div

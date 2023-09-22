@@ -32,8 +32,8 @@ export default function Topbar({ switchState }) {
         <Switch
           onChange={handleChange}
           checked={checked}
-          height={17}
-          width={37}
+          height={13}
+          width={32}
           handleDiameter={8}
           className="rs"
         />

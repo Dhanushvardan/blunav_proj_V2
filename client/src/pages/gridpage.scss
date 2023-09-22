@@ -10,55 +10,119 @@
         width: 100vw;
         display: flex;
         align-items: center;
-        justify-content: right;
-        .ftinput {
-            width: 7vw;
-            background-color: #323232;
-            height: 2vh;
+        color: white;
+        .dateRange {
+            height: 2.5vh;
+            width: 25vw;
+            display: flex;
+            margin-left: 40vw;
+            align-items: center;
+            background-color: black;
             color: white;
-            align-items: center;
-            display: flex;
-            border-top-left-radius: 0.5vw;
-            border-top-right-radius: 0.5vw;
-            border-bottom-left-radius: 0.5vw;
-            border-bottom-right-radius: 0.5vw;
-            margin-right: 1vw;
+            .rangeFilterButton {
+                margin-right: 1vw;
+                align-items: center;
+                display: flex;
+                height: 2vh;
+                width: 3vw;
+                align-items: center;
+                justify-content: center;
+                font-size: xx-small;
+            }
+            .label1 {
+                color: white;
+                height: 2vh;
+                width: 2.8vw;
+                background-color: black;
+                display: flex;
+                align-items: center;
+                font-size: small;
+            }
+            .label2 {
+                color: white;
+                height: 2vh;
+                width: 1.3vw;
+                background-color: black;
+                display: flex;
+                align-items: center;
+                font-size: small;
+            }
+            .fdinput {
+                margin-right: 0.3vw;
+                background-color: #6F6F6F;
+                height: 2.5vh;
+                font-size: 0.6vw;
+                width: 10vw;
+                display: flex;
+                color: white;
+                align-items: center;
+                // border-top-left-radius: 0.5vw;
+                // border-top-right-radius: 0.5vw;
+                // border-bottom-left-radius: 0.5vw;
+                // border-bottom-right-radius: 0.5vw;
+            }
+            .tdinput {
+                margin-right: 0.3vw;
+                background-color: #6F6F6F;
+                height: 2.5vh;
+                font-size: 0.6vw;
+                width: 10vw;
+                align-items: center;
+                display: flex;
+                &::placeholder {
+                    color: white;
+                }
+                // border-top-left-radius: 0.5vw;
+                // border-top-right-radius: 0.5vw;
+                // border-bottom-left-radius: 0.5vw;
+                // border-bottom-right-radius: 0.5vw;
+            }
         }
-        .ttinput {
-            width: 7vw;
-            margin-right: 1vw;
-            background-color: #323232;
-            height: 2vh;
-            color: white;
-            align-items: center;
-            display: flex;
-            border-top-left-radius: 0.5vw;
-            border-top-right-radius: 0.5vw;
-            border-bottom-left-radius: 0.5vw;
-            border-bottom-right-radius: 0.5vw;
-        }
-        .timeButton {
-            margin-right: 1vw;
-            align-items: center;
-            display: flex;
+        .timeRange {
             height: 3vh;
-            background-color: #6F6F6F;
-            border-top-left-radius: 0.5vw;
-            border-top-right-radius: 0.5vw;
-            border-bottom-left-radius: 0.5vw;
-            border-bottom-right-radius: 0.5vw;
+            width: 25vw;
+            display: flex;
+            align-items: center;
+            .ftinput {
+                width: 10vw;
+                background-color: #6F6F6F;
+                height: 2.5vh;
+                color: white;
+                align-items: center;
+                display: flex;
+                margin-right: 0.3vw;
+            }
+            .ttinput {
+                width: 10vw;
+                margin-right: 0.3vw;
+                background-color: #6F6F6F;
+                height: 2.5vh;
+                color: white;
+                align-items: center;
+                display: flex;
+            }
+            .timeButton {
+                margin-right: 2vw;
+                align-items: center;
+                display: flex;
+                height: 2vh;
+                width: 3vw;
+                align-items: center;
+                justify-content: center;
+                font-size: xx-small;
+                background-color: #6F6F6F;
+            }
         }
         .sBar {
             width: 7vw;
             align-items: center;
             display: flex;
-            height: 2vh;
-            color: white;
-            background-color: black;
-            border-top-left-radius: 0.5vw;
-            border-top-right-radius: 0.5vw;
-            border-bottom-left-radius: 0.5vw;
-            border-bottom-right-radius: 0.5vw;
+            height: 2.5vh;
+            background-color: #6F6F6F;
+            // border-top-left-radius: 0.5vw;
+            // border-top-right-radius: 0.5vw;
+            // border-bottom-left-radius: 0.5vw;
+            // border-bottom-right-radius: 0.5vw;
         }
         .rangeFilterButton {
             margin-right: 1vw;
@@ -66,30 +130,6 @@
             display: flex;
             height: 3vh;
             background-color: #6F6F6F;
-            border-top-left-radius: 0.5vw;
-            border-top-right-radius: 0.5vw;
-            border-bottom-left-radius: 0.5vw;
-            border-bottom-right-radius: 0.5vw;
-        }
-        .fdinput {
-            margin-right: 1vw;
-            background-color: #323232;
-            height: 2vh;
-            color: white;
-            display: flex;
-            align-items: center;
-            border-top-left-radius: 0.5vw;
-            border-top-right-radius: 0.5vw;
-            border-bottom-left-radius: 0.5vw;
-            border-bottom-right-radius: 0.5vw;
-        }
-        .tdinput {
-            margin-right: 1vw;
-            background-color: #323232;
-            height: 2vh;
-            color: white;
-            align-items: center;
-            display: flex;
             border-top-left-radius: 0.5vw;
             border-top-right-radius: 0.5vw;
             border-bottom-left-radius: 0.5vw;
